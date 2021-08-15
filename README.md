@@ -94,7 +94,7 @@ Here are some of the most common tokens available. You can check every possibili
 
 ### Adding Text
 
-In the format you can use any character that's not a letter (like - or /) without any problem. If you want to add words, you need to put them between [ ].
+In the format you can use any character that's not a letter (like -, / or even spaces) without any problem. If you want to add words, you need to put them between [ ].
 
 ### Examples
 
@@ -105,6 +105,13 @@ The following examples can be used in any of the inFormat or outFormat boxes. Fo
 |YYYYMMDD|20210815|
 |MM/DD-YY|08/15-21|
 |dddd Do [of the month] MMMM, [year] YYYY|Sunday 15th of the month August, year 2021|
-|[rubish] ddd- [LioranBoard] /HHmm|rubish Sun- LioranBoard /0650|
+|[rubbish] ddd- [LioranBoard] /HHmm|rubbish Sun- LioranBoard /0650|
 
+## Installation
+
+1. Download the last version of the Date_Math.lbe file from [releases](https://github.com/SebasF1349/LB-Date-Math-Extension/releases).
+2. Open the LioranBoard Receiver and press on Install Extension.
+3. Select the downloaded Date_Math.lbe file and be sure to select your current transmitter.
+4. Use the Send to Extension command to select any of the extension commands: Date Math or Date Diff.
+5. Create something cool.
 

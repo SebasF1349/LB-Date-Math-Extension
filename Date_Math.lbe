@@ -1,0 +1,54 @@
+[extension_name]
+Date Math
+[insert_external]
+<div><p>Date Math extension is installed.  </p></div>
+<!--
+* @name: Date Math, @version: 1.0, @author: SebasF
+* -->
+[insert_command]
+lioranboardclient.send('{"type":"MESSAGE","topic":"ExtensionCommand","name":"Date Math","boxcount":7,"boxname1":"variable","boxtype1":"string","boxname2":"inFormat","boxtype2":"string","boxname3":"date","boxtype3":"string","boxname4":"operator|+=|-=|","boxtype4":"string","boxname5":"number","boxtype5":"string","boxname6":"unit|minutes|hours|days|months|years|","boxtype6":"string","boxname7":"outFormat","boxtype7":"string"}');
+lioranboardclient.send('{"type":"MESSAGE","topic":"ExtensionCommand","name":"Date Diff","boxcount":5,"boxname1":"variable","boxtype1":"string","boxname2":"inFormat","boxtype2":"string","boxname3":"date1","boxtype3":"string","boxname4":"date2","boxtype4":"string","boxname5":"unit|minutes|hours|days|months|years|","boxtype5":"string"}');
+[insert_hook]
+case "DateMath":{
+	LBDateMath(LioranBoardJSON.variable, LioranBoardJSON.inFormat, LioranBoardJSON.date, LioranBoardJSON.operator, LioranBoardJSON.number, LioranBoardJSON.unit, LioranBoardJSON.outFormat);
+}break;
+case "DateDiff":{
+	LBDateDiff(LioranBoardJSON.variable, LioranBoardJSON.inFormat, LioranBoardJSON.date1, LioranBoardJSON.date2, LioranBoardJSON.unit);
+}break;
+[insert_script]
+function LBDateMath (variable, inFormat, date, operator, number, unit, outFormat){
+
+	if (date == "today") date = moment().format(inFormat);
+
+	if (outFormat == "") outFormat = inFormat;
+
+	let result = moment(date, inFormat, true);
+
+	switch (operator) {
+		case "+=":{
+		result = moment(result).add(number, unit);
+		} break;
+		case "-=":{
+		result = moment(result).subtract(number, unit);
+		} break;
+	}
+	
+	result = moment(result).format(outFormat);
+
+	LBSetValue(variable, result , false);
+}
+
+function LBDateDiff (variable, inFormat, date1, date2, unit){
+
+	if (date1 == "today") date1 = moment().format(inFormat);
+	if (date2 == "today") date2 = moment().format(inFormat);
+
+	let result = moment(date1, inFormat, true);
+
+	let secondDate = moment(date2, inFormat, true);
+
+	result = result.diff(secondDate, unit, true);
+
+	LBSetValue(variable, result , false);
+}
+[insert_over]

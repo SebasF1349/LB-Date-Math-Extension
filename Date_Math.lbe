@@ -3,7 +3,7 @@ Date Math
 [insert_external]
 <div><p>Date Math extension is installed.  </p></div>
 <!--
-* @name: Date Math, @version: 1.0, @author: SebasF
+* @name: Date Math, @version: 0.2, @author: SebasF1349
 * -->
 [insert_command]
 lioranboardclient.send('{"type":"MESSAGE","topic":"ExtensionCommand","name":"Date Math","boxcount":7,"boxname1":"variable","boxtype1":"string","boxname2":"inFormat","boxtype2":"string","boxname3":"date","boxtype3":"string","boxname4":"operator|+=|-=|","boxtype4":"string","boxname5":"number","boxtype5":"string","boxname6":"unit|minutes|hours|days|months|years|","boxtype6":"string","boxname7":"outFormat","boxtype7":"string"}');
@@ -18,11 +18,17 @@ case "DateDiff":{
 [insert_script]
 function LBDateMath (variable, inFormat, date, operator, number, unit, outFormat){
 
-	if (date == "today") date = moment().format(inFormat);
+	if (variable == "") return LBAlert("Empty variable");
+	if (inFormat == "") return LBAlert("Empty inFormat");
+	if (date == "") return LBAlert("Empty date");
+
+	if (date == "today" || date == "now") date = moment().format(inFormat);
 
 	if (outFormat == "") outFormat = inFormat;
 
 	let result = moment(date, inFormat, true);
+
+	if (result._isValid == false) return LBAlert("Incorrect inFormat");
 
 	switch (operator) {
 		case "+=":{
@@ -35,19 +41,27 @@ function LBDateMath (variable, inFormat, date, operator, number, unit, outFormat
 	
 	result = moment(result).format(outFormat);
 
+	if (result._isValid == false) return LBAlert("Incorrect outFormat");
+
 	LBSetValue(variable, result , false);
 }
 
 function LBDateDiff (variable, inFormat, date1, date2, unit){
 
-	if (date1 == "today") date1 = moment().format(inFormat);
-	if (date2 == "today") date2 = moment().format(inFormat);
+	if (variable == "") return LBAlert("Empty variable");
+	if (inFormat == "") return LBAlert("Empty inFormat");
+	if (date1 == "" || date2 == "") return LBAlert("Empty date");
 
-	let result = moment(date1, inFormat, true);
+	if (date1 == "today" || date1 == "now") date1 = moment().format(inFormat);
+	if (date2 == "today" || date2 == "now") date2 = moment().format(inFormat);
+
+	let firstDate = moment(date1, inFormat, true);
 
 	let secondDate = moment(date2, inFormat, true);
 
-	result = result.diff(secondDate, unit, true);
+	if (firstDate._isValid == false || secondDate._isValid == false) return LBAlert("Incorrect inFormat");
+
+	let result = firstDate.diff(secondDate, unit, true);
 
 	LBSetValue(variable, result , false);
 }

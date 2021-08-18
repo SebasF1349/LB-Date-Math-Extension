@@ -13,7 +13,7 @@ The main command. Allows you to add and substract any number of any time unit to
 
 * __variable__: The name of the variable where will be saved the result of the operation.
 * __inFormat__: The format of the date or time you input. More information about formatting below.
-* __date__: The date (or time) you will operate with. Must be in the format added in inFormat. You can fill it with _today_ to get the current date and time.
+* __date__: The date (or time) you will operate with. Must be in the format added in inFormat. You can fill it with _today_ or _now_ to get the current date and time (both do the same).
 * __operator__: Only two options: += to add or -= to substract.
 * __number__: Number you want to add or substract. You can leave it blank to don't do any math and just change the format of the date.
 * __unit__: Time unit of the number of the previous box. Can be minutes, hours, days, months or years.
@@ -45,8 +45,8 @@ This command only takes the difference between two dates or times. Useful to kno
 
 * __variable__: The name of the variable where will be saved the result of the operation.
 * __inFormat__: The format of the date or time you input. More information about formatting below.
-* __date1__: The first date. Must be in the inFormat format.
-* __date2__: The second date. Must be in the inFormat format. The command will do date1 - date2.
+* __date1__: The first date. Must be in the inFormat format. You can fill it with _today_ or _now_ to get the current date and time (both do the same).
+* __date2__: The second date. Must be in the inFormat format. You can fill it with _today_ or _now_ to get the current date and time (both do the same). The command will do date1 - date2.
 * __unit__: The time unit you want for the result. Can be minutes, hours, days, months or years. 
 
 #### Examples
@@ -106,6 +106,12 @@ The following examples can be used in any of the inFormat or outFormat boxes. Fo
 |MM/DD-YY|08/15-21|
 |dddd Do [of the month] MMMM, [year] YYYY|Sunday 15th of the month August, year 2021|
 |[rubbish] ddd- [LioranBoard] /HHmm|rubbish Sun- LioranBoard /0650|
+
+## Clarifications
+
+* When you add a date without a time, the default time will be 00:00.
+* Outputs are always strings, even when it's just a number. Remember to use String to Real command if you plan to do math with those.
+* Added yellow alerts in the receiver if any important field is not complete or the format is wrong.
 
 ## Installation
 

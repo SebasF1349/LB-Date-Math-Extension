@@ -90,7 +90,7 @@ Here are some of the most common tokens available. You can check every possibili
 | Month numeral, day of month, year  | L | 00 01 ... 58 59 |
 | Month name, day of month, year | LL | September 4, 1986 |
 | Month name, day of month, year, time | LLL | September 4, 1986 8:30 PM |
-| Month name, day of month, day of week, year, time | LLL | Thursday, September 4, 1986 8:30 PM |
+| Month name, day of month, day of week, year, time | LLLL | Thursday, September 4, 1986 8:30 PM |
 
 ### Adding Text
 

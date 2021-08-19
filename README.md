@@ -109,9 +109,10 @@ The following examples can be used in any of the inFormat or outFormat boxes. Fo
 
 ## Clarifications
 
+* You need LioranBoard 1.44 or a newer version.
 * When you add a date without a time, the default time will be 00:00.
 * Outputs are always strings, even when it's just a number. Remember to use String to Real command if you plan to do math with those.
-* Added yellow alerts in the receiver if any important field is not complete or the format is wrong.
+* Yellow alerts in the receiver will tell you if any important field is not complete or the format is wrong.
 
 ## Installation
 

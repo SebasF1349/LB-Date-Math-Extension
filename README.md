@@ -1,6 +1,6 @@
 # LB Date Math Extension
 
-LioranBoard Extension that allows you to do simple math with dates. You can add and substract minutes/hours/days/years (and more) to a specific date or the current date and time, in any format you like.
+LioranBoard Extension that allows you to do simple math with dates. You can add and subtract minutes/hours/days/years (and more) to a specific date or the current date and time, in any format you like.
 
 
 ## Commands

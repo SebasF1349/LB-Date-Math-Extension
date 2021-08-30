@@ -3,7 +3,7 @@ Date Math
 [insert_external]
 <div><p>Date Math extension is installed.  </p></div>
 <!--
-* @name: Date Math, @version: 0.2, @author: SebasF1349
+* @name: Date Math, @version: 0.4, @author: SebasF1349
 * -->
 [insert_command]
 lioranboardclient.send('{"type":"MESSAGE","topic":"ExtensionCommand","name":"Date Math","boxcount":7,"boxname1":"variable","boxtype1":"string","boxname2":"inFormat","boxtype2":"string","boxname3":"date","boxtype3":"string","boxname4":"operator|+=|-=|","boxtype4":"string","boxname5":"number","boxtype5":"string","boxname6":"unit|minutes|hours|days|months|years|","boxtype6":"string","boxname7":"outFormat","boxtype7":"string"}');
@@ -66,6 +66,3 @@ function LBDateDiff (variable, inFormat, date1, date2, unit){
 	LBSetValue(variable, result , false);
 }
 [insert_over]
-[force]
-obswebsocket="4.9.0"
-version="1.44"

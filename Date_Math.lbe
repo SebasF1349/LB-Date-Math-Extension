@@ -3,11 +3,11 @@ Date Math
 [insert_external]
 <div><p>Date Math extension is installed.  </p></div>
 <!--
-* @name: Date Math, @version: 0.4, @author: SebasF1349
+* @name: Date Math, @version: 0.5, @author: SebasF1349
 * -->
 [insert_command]
-lioranboardclient.send('{"type":"MESSAGE","topic":"ExtensionCommand","name":"Date Math","boxcount":7,"boxname1":"variable","boxtype1":"string","boxname2":"inFormat","boxtype2":"string","boxname3":"date","boxtype3":"string","boxname4":"operator|+=|-=|","boxtype4":"string","boxname5":"number","boxtype5":"string","boxname6":"unit|minutes|hours|days|months|years|","boxtype6":"string","boxname7":"outFormat","boxtype7":"string"}');
-lioranboardclient.send('{"type":"MESSAGE","topic":"ExtensionCommand","name":"Date Diff","boxcount":5,"boxname1":"variable","boxtype1":"string","boxname2":"inFormat","boxtype2":"string","boxname3":"date1","boxtype3":"string","boxname4":"date2","boxtype4":"string","boxname5":"unit|minutes|hours|days|months|years|","boxtype5":"string"}');
+lioranboardclient.send('{"type":"MESSAGE","topic":"ExtensionCommand","name":"Date Math","boxcount":7,"boxname1":"variable","boxtype1":"string","boxname2":"inFormat","boxtype2":"string","boxname3":"date","boxtype3":"string","boxname4":"operator|+=|-=|","boxtype4":"string","boxname5":"number","boxtype5":"string","boxname6":"unit|seconds|minutes|hours|days|months|years|","boxtype6":"string","boxname7":"outFormat","boxtype7":"string"}');
+lioranboardclient.send('{"type":"MESSAGE","topic":"ExtensionCommand","name":"Date Diff","boxcount":5,"boxname1":"variable","boxtype1":"string","boxname2":"inFormat","boxtype2":"string","boxname3":"date1","boxtype3":"string","boxname4":"date2","boxtype4":"string","boxname5":"unit|seconds|minutes|hours|days|months|years|","boxtype5":"string"}');
 [insert_hook]
 case "DateMath":{
 	LBDateMath(LioranBoardJSON.variable, LioranBoardJSON.inFormat, LioranBoardJSON.date, LioranBoardJSON.operator, LioranBoardJSON.number, LioranBoardJSON.unit, LioranBoardJSON.outFormat);
